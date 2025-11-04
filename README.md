@@ -20,7 +20,7 @@ We compare the approaches in terms of **accuracy (WER/CER/MER)** and **efficienc
 
 ```
    whisper-fine-tuning-for-code-switched-asr/
-   ├──  README.md
+   ├── README.md
    ├── LICENSE
    ├── requirements.txt
    ├── data/
