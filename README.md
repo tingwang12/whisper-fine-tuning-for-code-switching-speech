@@ -18,27 +18,30 @@ We compare the approaches in terms of **accuracy (WER/CER/MER)** and **efficienc
 
 ## **Repository Structure**
 
-whisper-fine-tuning-for-code-switched-asr/
-── README.md
-── LICENSE
-── requirements.txt
-── data/
-   ── raw/
-   ── processed/
-── scripts/
-── notebooks/
-   ── 01_data_exploration.ipynb
-      ── 02_pretrained_whisper_evaluation.ipynb
-   ── 03_lora_fine_tuning.ipynb
-   ── 04_in_context_learning.ipynb
-   ── 05_comparison_analysis.ipynb
-── src/
-   ── data/
-   ── models/
-   ── analysis/
-   ── config.py
-── tests/
-── results/
+```
+   whisper-fine-tuning-for-code-switched-asr/
+   ├──  README.md
+   ├── LICENSE
+   ├── requirements.txt
+   ├── data/
+   │   ├── raw/
+   │   └── processed/
+   ├── scripts/
+   ├── notebooks/
+   │   ├── 01_data_exploration.ipynb
+   │   ├── 02_pretrained_whisper_evaluation.ipynb
+   │   ├── 03_lora_fine_tuning.ipynb
+   │   ├── 04_in_context_learning.ipynb
+   │   └── 05_comparison_analysis.ipynb
+   ├── src/
+   │   ├── data/
+   │   ├── models/
+   │   ├── analysis/
+   │   └── config.py
+   ├── tests/
+   ├── results/
+
+```
 
 > All main experiments and analysis are implemented in the `notebooks/` folder.
 
@@ -49,10 +52,12 @@ whisper-fine-tuning-for-code-switched-asr/
 ```bash
 git clone https://github.com/tingwang12/whisper-fine-tuning-for-code-switched-asr.git
 cd whisper-fine-tuning-for-code-switched-asr
+```
 
 2. Install dependencies:
 ```bash
 pip install -r requirements.txt
+```
 
 3. Download the datasets using Hugging Face:
 ```bash
@@ -60,5 +65,5 @@ from datasets import load_dataset
 
 dataset_sge = load_dataset("AudioLLMs/seame_dev_sge")
 dataset_man = load_dataset("AudioLLMs/seame_dev_man")
-
+```
 
