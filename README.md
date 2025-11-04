@@ -1,7 +1,73 @@
 ## Whisper Fine-Tuning for Code-Switching Speech Recognition
 
-This project develops a robust ASR system for code-switched speech using the **SEAME dataset**, which contains Mandarin-English conversational recordings. We adapt a pre-trained **Whisper-small** model using three strategies: **LoRA fine-tuning**, **zero-shot**, and **few-shot in-context learning**.
+---
 
-We evaluate performance with **WER** (English), **CER** (Mandarin), and **MER** (overall), while also tracking computational efficiency (trainable parameters, GPU memory, training time, checkpoint size).
+## **Project Overview**
 
-**Expected outcome:** LoRA achieves higher accuracy near code-switch points, while few-shot in-context learning offers a flexible, training-free alternative under limited resources.
+This project evaluates **Whisper-small** for **code-switched speech recognition**, focusing on two Mandarin-English SEAME datasets:
+
+- [SEAME Dev SGE](https://huggingface.co/datasets/AudioLLMs/seame_dev_sge)  
+- [SEAME Dev MAN](https://huggingface.co/datasets/AudioLLMs/seame_dev_man)
+
+We investigate two approaches to improve ASR performance on code-switched speech:
+
+1. **LoRA Fine-Tuning** – Adapting Whisper with Low-Rank Adapters.
+2. **In-Context Learning (ICL)** – Zero-shot and few-shot adaptation without model updates.
+
+We compare the approaches in terms of **accuracy (WER/CER)** and **efficiency (training/inference time, memory usage)**.
+
+---
+
+## **Repository Structure**
+
+whisper-fine-tuning-for-code-switched-asr/
+│
+├── README.md
+├── LICENSE
+├── requirements.txt
+│
+├── data/
+│ ├── raw/
+│ ├── processed/
+│ └── scripts/
+│
+├── notebooks/
+│ ├── 01_data_exploration.ipynb
+│ ├── 02_pretrained_whisper_evaluation.ipynb
+│ ├── 03_lora_fine_tuning.ipynb
+│ ├── 04_in_context_learning.ipynb
+│ └── 05_comparison_analysis.ipynb
+│
+├── src/
+│ ├── data/
+│ ├── models/
+│ ├── analysis/
+│ └── config.py
+│
+├── tests/
+├── results/
+└── scripts/
+
+
+
+> All main experiments and analysis are implemented in the `notebooks/` folder.  
+
+---
+
+## **Setup Instructions**
+
+1. Clone the repository:
+```bash
+git clone https://github.com/tingwang12/whisper-fine-tuning-for-code-switched-asr.git
+cd whisper-fine-tuning-for-code-switched-asr
+
+2. Install dependencies:
+pip install -r requirements.txt
+
+3. Download the datasets using Hugging Face:
+from datasets import load_dataset
+
+dataset_sge = load_dataset("AudioLLMs/seame_dev_sge")
+dataset_man = load_dataset("AudioLLMs/seame_dev_man")
+
+
